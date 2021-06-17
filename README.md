@@ -26,7 +26,7 @@ git clone https://github.com/DrAtomic/company-gambit.git
 
 go into your emacs config file and add
 
-```
+```emacs
 (use-package company-gambit
   :ensure nil
   :load-path "~/.emacs.d/company-gambit/"
