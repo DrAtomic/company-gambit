@@ -22,7 +22,7 @@
 		       (setq procedure-hash test-list))))))))
 
 
-					; TODO: make the arguments list show up, also maybe use a hashtable instead of a list
+					; TODO(#1): make the arguments list show up, also maybe use a hashtable instead of a list
 					; TODO: make it also match special forms
 
 ;; (defun gambit-hash ()
