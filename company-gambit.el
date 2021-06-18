@@ -15,15 +15,18 @@
 		   (with-temp-buffer
 		     (insert-file-contents "/usr/share/doc/gambit-c/gambit.txt")
 		     (goto-char (point-min))
-		     (let ((test-list '()))
-		       (while (re-search-forward "-- procedure.*" (point-max) t)
-			 (let ((procedure-name-with-args (cadr (split-string (match-string 0) "-- procedure: "))))
+		     (let* ((test-list '())
+			    (gambit-regular-exp "\\(?:-- \\(?:procedure\\|special form\\): \\)")
+			    (full-regular-exp  (concat gambit-regular-exp ".*")))
+       
+		       (while (re-search-forward full-regular-exp (point-max) t)
+			 (let ((procedure-name-with-args (replace-regexp-in-string
+							  gambit-regular-exp "" (match-string 0))))
 			   (push (car (split-string procedure-name-with-args)) test-list)))
 		       (setq procedure-hash test-list))))))))
 
 
 					; TODO(#1): make the arguments list show up, also maybe use a hashtable instead of a list
-					; TODO(#2): make it also match special forms
 
 ;; (defun gambit-hash ()
 ;;   "makes hash of procedure names as well as arguments"
