@@ -27,6 +27,9 @@
 
 
 					; TODO(#1): make the arguments list show up, also maybe use a hashtable instead of a list
+					; TODO(#3): make user defined functions show up
+					; TODO: make imported functions show up
+
 
 ;; (defun gambit-hash ()
 ;;   "makes hash of procedure names as well as arguments"
