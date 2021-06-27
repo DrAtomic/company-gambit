@@ -19,6 +19,21 @@ In addition gambit comes with a pretty nice [gambit-mode](https://github.com/gam
 you should definitely just use geiser
 
 ## Installation
+
+### straight package manager
+
+[straight](https://github.com/raxod502/straight.el) is a package manager for emacs, its really handy. No git cloning required!
+
+```emacs
+(use-package company-gambit
+    :straight (company-gambit :type git :host github :repo "DrAtomic/company-gambit")
+    :config
+    (defun my-scheme-mode-hook ()
+      (add-to-list 'company-backends 'company-gambit--backend))
+    (add-hook 'scheme-mode-hook 'my-scheme-mode-hook))
+```
+
+### git installation
 ```
 cd ~/.emacs.d
 git clone https://github.com/DrAtomic/company-gambit.git
